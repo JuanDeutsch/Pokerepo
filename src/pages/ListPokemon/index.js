@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import "./index.css";
-import { useNavigate } from "react-router-dom";
-import SearchBox from "../../components/SearchBox";
+import SearchBox from "../../components1/searchbox";
+import PokemonCard from "../../components1/pokemoncard";
 
 const interval = {
   limit: 151,
@@ -11,13 +11,9 @@ const interval = {
 
 const ListPokemon = () => {
   const [pokemons, setPokemons] = useState([]);
-  const navigate = useNavigate();
+  const [searched, setSearched] = useState([]);
 
-  const handlePokemonClick = (id) => {
-    navigate(`/detail/${id}`);
-  };
-
-  const handleSeach = (search) => {
+  const handleSearch = (search) => {
     const filtered = pokemons.filter((pokemon) =>
       pokemon.name.includes(search)
     );
@@ -37,18 +33,9 @@ const ListPokemon = () => {
   }, []);
   return (
     <div className="App">
-      <SearchBox onSearch={handleSeach} />
-      {pokemons.map((pokemon) => (
-        <div
-          className="pokemon"
-          onClick={() => navigate(`/detail/${pokemon.id}`)}
-        >
-          <h1>{pokemon.name}</h1>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-          <p>Height: {pokemon.height}kg</p>
-        </div>
-      ))}
+      <SearchBox onSearch={handleSearch} />
+      {searched.map((pokemon) => (<PokemonCard key={pokemon.id} pokemon={pokemon} />))}
     </div>
   );
-};
+}
 export default ListPokemon;
