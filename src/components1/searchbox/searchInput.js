@@ -1,7 +1,12 @@
 import React from "react";
 
-const SearchInput = ({ onChange }) => (
-  <input onChange={(e) => onChange(e.target.value) } type="text" placeholder="Busca en este sitio web" />
-);
+import { useFiltersContext } from "../../context/filtersCtx";
+
+const SearchInput = () => {
+  const { filters, setFilters } = useFiltersContext();
+  return (
+    <input onChange={(e) => setFilters({...filters, search: e.target.value})} type="text" placeholder="Busca Pokimons"/>
+  );
+};
 
 export default SearchInput;

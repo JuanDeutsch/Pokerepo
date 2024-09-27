@@ -1,7 +1,8 @@
 import React from "react";
-import SearchInput from "./searchInput";
 
 import "./index.css";
+
+import SearchInput from "./searchInput";
 
 const SearchBox = ({ onSearch }) => {
   return (
@@ -9,6 +10,6 @@ const SearchBox = ({ onSearch }) => {
       <SearchInput onChange={onSearch} />
     </div>
   );
-}
+};
 
 export default SearchBox;
