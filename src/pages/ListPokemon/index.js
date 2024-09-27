@@ -26,7 +26,7 @@ const ListPokemon = () => {
         pokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
-      <Paginated page={page} total={ total / limit } setPage={setPage} />
+      <Paginated page={page} total={ Math.ceil(total / limit) } setPage={setPage} />
     </div>
   );
 };

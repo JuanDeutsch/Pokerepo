@@ -7,6 +7,7 @@ export const actions = {
 
 export const initialState = {
   pokemons: [],
+  allPokemons: [],
   pokemon: {},
   loading: false,
   error: null,
@@ -20,7 +21,11 @@ export const initialState = {
 export const pokemonReducer = (state, action) => {
   switch (action.type) {
     case actions.SET_POKEMONS:
-      return { ...state, pokemons: action.payload };
+      return {
+        ...state,
+        pokemons: action.payload,
+        allPokemons: action.payload,
+      };
     case actions.SET_POKEMON:
       return { ...state, pokemon: action.payload };
     case actions.SET_LOADING:

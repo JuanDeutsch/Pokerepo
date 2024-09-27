@@ -20,7 +20,8 @@ const usePokemons = () => {
     });
     const urls = response.results.map((pokemon) => pokemon.url);
     const pokemonsResponse = await pokedex.getResource(urls);
-    const filterResponse = pokemonsResponse.filter((p) => p.name.includes(filters.search));
+    dispatch({ type: actions.SET_POKEMONS, payload: pokemonsResponse });
+    const filterResponse = pokemonsResponse.filter((p) => p.name.includes(filters.search.toLowerCase()));
     dispatch({ type: actions.SET_POKEMONS, payload: filterResponse });
     dispatch({ type: actions.SET_LOADING, payload: false });
   }, [dispatch, filters, metadata]);
