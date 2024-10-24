@@ -17,7 +17,7 @@ const PokemonCard = ({ pokemon }) => {
       <span className="number">
         { String(pokemon.id).padStart(3, '0') }
       </span>
-      <div className="info-box">
+      <div class="info-box">
         <span className="name">{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</span>
       </div>
     </div>
