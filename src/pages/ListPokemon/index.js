@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./index.css";
 
 import SearchBox from "../../components1/searchbox";
-import PokemonCardContainer from "../../components1/pokemoncard";
+import PokemonCardContainer from "../../components1/pokemoncard/pokemonCardContainer";
 import Paginated from "../../components1/paginated";
 
 import usePokemons from "../../hooks/usePokemons";

@@ -13,3 +13,8 @@ const PokemonCardContainer = ({ pokemon }) => {
     }
 
 export default PokemonCardContainer;
+
+//Ya no es necesario utilizar el index.js, esto porque se dividieron las reponsabilidades de la UI y la lógica de la vista.
+//Ahora el componente PokemonCardContainer se encarga de la lógica de la vista y PokemonCardUI de la UI.
+//Esto hace que el código sea más limpio y fácil de mantener.
+//Y esto se evidencia en el apartado de la pokemon list, donde se importa el componente PokemonCardContainer y no PokemonCard.
